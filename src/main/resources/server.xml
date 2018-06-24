@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+
+    <rootDir>F:\ideaProgram\ftpServer\src\download</rootDir>
+
+    <users>
+        <user>
+            <username>root</username>
+            <password>123456</password>
+        </user>
+    </users>
+</root>
