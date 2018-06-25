@@ -12,19 +12,24 @@ import java.util.List;
 
 public class AccountUtil {
 
-    private static final String fileName = "server.xml";
+    private static final String ConfigFile = "server.xml";
     private static String rootDir;
     private static HashMap<String, String> users = new HashMap<String, String>();
 
     public static void initAccount() {
-        File file = new File(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
+
+        StringBuffer pathName = new StringBuffer(System.getProperty("user.dir"));
+        pathName.append("/src/main/resources/");
+        pathName.append(ConfigFile);
+        File file = new File(pathName.toString());
+
         try {
             SAXBuilder builder = new SAXBuilder();
             Document parse = builder.build(file);
             Element root = parse.getRootElement();
 
             //配置服务器的默认目录
-            rootDir = root.getChildText("rootDir");
+            rootDir = System.getProperty("user.dir") + root.getChildText("rootDir");
             System.out.println("rootDir is: " + rootDir);
 
             //允许登录的用户
